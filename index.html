@@ -1,268 +1,503 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Maryam Trading</title>
+  <meta name="description" content="Maryam Trading — Trading & Supply Company" />
   <style>
-    :root{--bg:#0b1220;--card:#0f1b33;--text:#e9eefc;--muted:#b9c6e6;--accent:#3dd9c4;--line:rgba(255,255,255,.12)}
+    :root{
+      --bg:#0b0f17;
+      --card:#121a2a;
+      --text:#eaf0ff;
+      --muted:#a9b6d3;
+      --line:rgba(255,255,255,.08);
+      --brand:#35d3ff;
+      --brand2:#6c7cff;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius:18px;
+      --radius2:22px;
+      --container:1100px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto; background:linear-gradient(180deg,#070c16, #0b1220 35%, #070c16); color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
-    header{position:sticky;top:0;background:rgba(7,12,22,.75);backdrop-filter: blur(10px);border-bottom:1px solid var(--line);z-index:10}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:44px;height:44px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .logo img{width:100%;height:100%;object-fit:contain}
-    .brand h1{font-size:16px;margin:0;line-height:1.1}
-    .brand p{margin:0;color:var(--muted);font-size:12px}
-    nav{display:flex;gap:14px;flex-wrap:wrap}
-    nav a{padding:8px 10px;border-radius:10px;color:var(--muted);border:1px solid transparent}
-    nav a:hover{border-color:var(--line);color:var(--text)}
-    .lang{display:flex;gap:8px}
-    .lang button{cursor:pointer;border:1px solid var(--line);background:transparent;color:var(--muted);
-      padding:8px 10px;border-radius:10px;font-weight:600}
-    .lang button.active{border-color:rgba(61,217,196,.6);color:var(--text);box-shadow:0 0 0 3px rgba(61,217,196,.12) inset}
-    .hero{padding:44px 0 18px}
-    .hero-card{border:1px solid var(--line);background:rgba(15,27,51,.65);border-radius:18px;padding:28px;box-shadow:0 14px 50px rgba(0,0,0,.35)}
-    .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
-    .kicker{color:var(--accent);font-weight:700;letter-spacing:.3px}
-    .title{font-size:34px;margin:10px 0 10px}
-    .sub{color:var(--muted);margin:0 0 18px;font-size:16px;line-height:1.5}
-    .cta{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);color:var(--text);background:transparent}
-    .btn.primary{background:linear-gradient(135deg, rgba(61,217,196,.18), rgba(61,217,196,.06));border-color:rgba(61,217,196,.45)}
-    .info{border:1px solid var(--line);border-radius:16px;padding:16px;background:rgba(7,12,22,.35)}
-    .info div{margin:8px 0;color:var(--muted);font-size:14px}
-    section{padding:26px 0}
-    .section-title{font-size:22px;margin:0 0 12px}
-    .section-desc{color:var(--muted);margin:0 0 18px;line-height:1.6}
-    .grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px}
-    .card{border:1px solid var(--line);background:rgba(15,27,51,.55);border-radius:16px;padding:16px}
-    .card h3{margin:8px 0 6px;font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-    .prod-img{width:100%;height:170px;border-radius:14px;object-fit:cover;border:1px solid var(--line);background:#0a1020}
-    footer{padding:24px 0 36px;color:var(--muted);border-top:1px solid var(--line);margin-top:22px}
-    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 400px at 20% 0%, rgba(53,211,255,.22), transparent 60%),
+        radial-gradient(900px 400px at 80% 0%, rgba(108,124,255,.22), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--container); margin:0 auto; padding:28px 18px 70px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 16px;
+      background:rgba(18,26,42,.7); border:1px solid var(--line);
+      border-radius:var(--radius2); box-shadow: var(--shadow);
+      position:sticky; top:14px; z-index:50;
+      backdrop-filter: blur(10px);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:220px;
+    }
+    .brand img{width:38px; height:38px; border-radius:12px; object-fit:cover; background:#0e1627; border:1px solid var(--line)}
+    .brand b{display:block; font-size:15px; letter-spacing:.2px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+    nav{display:flex; gap:14px; flex-wrap:wrap; justify-content:center}
+    nav a{
+      text-decoration:none; font-size:14px; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    nav a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04)}
+    .lang{
+      display:flex; gap:8px; align-items:center; min-width:220px; justify-content:flex-end;
+    }
+    .lang button{
+      cursor:pointer;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      font-size:13px;
+    }
+    .lang button.active{color:#06121b; background:linear-gradient(90deg,var(--brand),var(--brand2)); border-color:transparent; font-weight:700}
+    .hero{
+      margin-top:26px;
+      display:grid; grid-template-columns: 1.15fr .85fr;
+      gap:18px; align-items:stretch;
+    }
+    .card{
+      background:rgba(18,26,42,.74);
+      border:1px solid var(--line);
+      border-radius:var(--radius2);
+      box-shadow: var(--shadow);
+      padding:22px;
+      backdrop-filter: blur(10px);
+    }
+    .hero h1{margin:0 0 10px; font-size:42s; font-size:44px; line-height:1.05}
+    .hero p{margin:0 0 16px; color:var(--muted); font-size:16px; line-height:1.55}
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      padding:8px 10px; border-radius:999px;
+      color:var(--muted); font-size:13px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:700;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg,var(--brand),var(--brand2));
+      border-color:transparent;
+      color:#06121b;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .heroRight{
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .mini{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:14px; border-radius:18px;
+      border:1px solid var(--line); background:rgba(255,255,255,.03);
+    }
+    .mini b{display:block; margin-bottom:4px}
+    .mini span{display:block; color:var(--muted); font-size:13px; line-height:1.45}
+    section{margin-top:26px}
+    h2{margin:0 0 12px; font-size:22px}
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+    .item{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      overflow:hidden;
+    }
+    .item img{width:100%; height:190px; object-fit:cover; display:block; background:#0e1627}
+    .item .pad{padding:14px}
+    .item .pad b{display:block; margin-bottom:6px}
+    .item .pad p{margin:0; color:var(--muted); font-size:13px; line-height:1.5}
+    .contactBox{
+      display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;
+    }
+    .contactCard{
+      padding:16px; border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+    .contactCard .label{color:var(--muted); font-size:12px; margin-bottom:6px}
+    .contactCard a{display:inline-block; font-weight:800; text-decoration:none}
+    footer{
+      margin-top:26px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      .brand{min-width:auto}
+      .lang{min-width:auto}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+      .contactBox{grid-template-columns:1fr}
+      .hero h1{font-size:36px}
+    }
   </style>
 </head>
+
 <body>
-
-<header>
-  <div class="wrap topbar">
-    <div class="brand">
-      <div class="logo">
-        <img src="assets/logo.png" alt="Maryam Trading logo" onerror="this.style.display='none'">
-      </div>
-      <div>
-        <h1>Maryam Trading</h1>
-        <p data-i18n="tagline">Trading & Supply Company</p>
-      </div>
-    </div>
-
-    <nav>
-      <a href="#about" data-i18n="nav_about">About</a>
-      <a href="#products" data-i18n="nav_products">Products</a>
-      <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
-    </nav>
-
-    <div class="lang">
-      <button class="active" data-lang="en">EN</button>
-      <button data-lang="ru">RU</button>
-      <button data-lang="uz">UZ</button>
-    </div>
-  </div>
-</header>
-
-<div class="hero">
   <div class="wrap">
-    <div class="hero-card hero-grid">
-      <div>
-        <div class="kicker" data-i18n="kicker">Official website</div>
-        <div class="title" data-i18n="hero_title">Maryam Trading</div>
-        <p class="sub" data-i18n="hero_sub">
-          We supply reliable products and services with a focus on quality, transparent communication, and on-time delivery.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#products" data-i18n="cta_products">View products</a>
-          <a class="btn" href="#contact" data-i18n="cta_contact">Contact us</a>
+    <div class="topbar">
+      <div class="brand">
+        <!-- LOGO: /assets/logo.png -->
+        <img src="/assets/logo.png" alt="Logo" />
+        <div>
+          <b>Maryam Trading</b>
+          <span data-i18n="tagline">Trading & Supply Company</span>
         </div>
       </div>
 
-      <div class="info">
-        <div><b data-i18n="info_email_label">Email:</b> <span>info@maryamtrading.com</span></div>
-        <div><b data-i18n="info_tel_label">Tel:</b> <span>+998 90 123 45 67</span></div>
-        <div><b data-i18n="info_tg_label">Telegram:</b> <span>@MaryamTrading</span></div>
-        <div><b data-i18n="info_location_label">Location:</b> <span data-i18n="info_location_val">Uzbekistan</span></div>
+      <nav>
+        <a href="#about" data-i18n="nav_about">About Us</a>
+        <a href="#products" data-i18n="nav_products">Products</a>
+        <a href="#services" data-i18n="nav_services">Services</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <div class="lang">
+        <button class="lang_button" data-lang="en">EN</button>
+        <button class="lang_button" data-lang="uz">UZ</button>
+        <button class="lang_button" data-lang="ru">RU</button>
       </div>
     </div>
-  </div>
-</div>
 
-<section id="about">
-  <div class="wrap">
-    <h2 class="section-title" data-i18n="about_title">About Us</h2>
-    <p class="section-desc" data-i18n="about_text">
-      Maryam Trading is a trading and supply company. We work with partners to provide consistent quality, competitive pricing, and clear documentation.
+    <div class="hero">
+      <div class="card">
+        <h1 data-i18n="hero_title">Trading that delivers on time.</h1>
+        <p data-i18n="hero_text">
+          We help you source, supply, and deliver products with clear communication and reliable logistics.
+        </p>
+
+        <div class="chips">
+          <div class="chip" data-i18n="chip1">Sourcing</div>
+          <div class="chip" data-i18n="chip2">Supply</div>
+          <div class="chip" data-i18n="chip3">Logistics</div>
+          <div class="chip" data-i18n="chip4">Documentation</div>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#contact" data-i18n="cta_contact">Contact us</a>
+          <a class="btn" href="#products" data-i18n="cta_products">View products</a>
+        </div>
+      </div>
+
+      <div class="heroRight">
+        <div class="card">
+          <div class="mini">
+            <div>
+              <b data-i18n="mini1_title">Fast response</b>
+              <span data-i18n="mini1_text">We reply quickly and keep you updated.</span>
+            </div>
+          </div>
+          <div class="mini">
+            <div>
+              <b data-i18n="mini2_title">Quality control</b>
+              <span data-i18n="mini2_text">We check suppliers and specifications.</span>
+            </div>
+          </div>
+          <div class="mini">
+            <div>
+              <b data-i18n="mini3_title">Clear documents</b>
+              <span data-i18n="mini3_text">Invoices, packing list, and export docs prepared properly.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="card">
+        <h2 data-i18n="about_title">About Us</h2>
+        <p data-i18n="about_text" style="color:var(--muted); margin:0; line-height:1.6">
+          Maryam Trading is a trading & supply company focused on sourcing and delivering products for businesses.
+        </p>
+
+        <div class="grid3" style="margin-top:14px">
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="about_card1_title">Reliability</b>
+              <p data-i18n="about_card1_text">Stable supply and on-time delivery are our priority.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="about_card2_title">Communication</b>
+              <p data-i18n="about_card2_text">Transparent updates at every stage.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="about_card3_title">Support</b>
+              <p data-i18n="about_card3_text">We help with product selection and logistics.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <div class="card">
+        <h2 data-i18n="products_title">Products</h2>
+        <p data-i18n="products_text" style="color:var(--muted); margin:0 0 14px">
+          Example product showcase (replace titles/descriptions later).
+        </p>
+
+        <div class="grid3">
+          <div class="item">
+            <img src="/assets/p1.jpg" alt="Product 1" />
+            <div class="pad">
+              <b data-i18n="p1_title">Product 1</b>
+              <p data-i18n="p1_text">Short description for product 1.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/assets/p2.jpg" alt="Product 2" />
+            <div class="pad">
+              <b data-i18n="p2_title">Product 2</b>
+              <p data-i18n="p2_text">Short description for product 2.</p>
+            </div>
+          </div>
+          <div class="item">
+            <img src="/assets/p3.jpg" alt="Product 3" />
+            <div class="pad">
+              <b data-i18n="p3_title">Product 3</b>
+              <p data-i18n="p3_text">Short description for product 3.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="card">
+        <h2 data-i18n="services_title">Services</h2>
+
+        <div class="grid2">
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="s1_title">Sourcing</b>
+              <p data-i18n="s1_text">Supplier selection, samples, and specifications alignment.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="s2_title">Documentation</b>
+              <p data-i18n="s2_text">Invoice, packing list, and partner coordination.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="s3_title">Logistics</b>
+              <p data-i18n="s3_text">Planning shipping and delivery updates.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="pad">
+              <b data-i18n="s4_title">After-sales</b>
+              <p data-i18n="s4_text">Support and follow-up after delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+  <h2 data-i18n="contact_title">Aloqa</h2>
+
+  <div class="contactCard">
+    <p>
+      📞 Telefon:
+      <a href="tel:+998500559933">+998 50 055 99 33</a>
     </p>
-    <div class="grid">
-      <div class="card">
-        <h3 data-i18n="about_card1_title">Quality</h3>
-        <p data-i18n="about_card1_text">We focus on stable quality and transparent specifications.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="about_card2_title">Reliability</h3>
-        <p data-i18n="about_card2_text">Clear communication and on-time delivery are our priorities.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="about_card3_title">Support</h3>
-        <p data-i18n="about_card3_text">We assist with product selection and logistics coordination.</p>
-      </div>
-    </div>
   </div>
-</section>
 
-<section id="products">
-  <div class="wrap">
-    <h2 class="section-title" data-i18n="products_title">Products</h2>
-    <p class="section-desc" data-i18n="products_text">Below are sample products. We can expand this list anytime.</p>
-
-    <div class="grid">
-      <div class="card">
-        <img class="prod-img" src="assets/p1.jpg" alt="Product 1" onerror="this.style.display='none'">
-        <h3 data-i18n="p1_title">Product 1</h3>
-        <p data-i18n="p1_text">Short description of product 1.</p>
-      </div>
-      <div class="card">
-        <img class="prod-img" src="assets/p2.jpg" alt="Product 2" onerror="this.style.display='none'">
-        <h3 data-i18n="p2_title">Product 2</h3>
-        <p data-i18n="p2_text">Short description of product 2.</p>
-      </div>
-      <div class="card">
-        <img class="prod-img" src="assets/p3.jpg" alt="Product 3" onerror="this.style.display='none'">
-        <h3 data-i18n="p3_title">Product 3</h3>
-        <p data-i18n="p3_text">Short description of product 3.</p>
-      </div>
-    </div>
+  <div class="contactCard">
+    <p>
+      💬 Telegram (manager):
+      <a href="https://t.me/Kubro_menejer" target="_blank">@Kubro_menejer</a>
+    </p>
   </div>
-</section>
 
-<section id="services">
-  <div class="wrap">
-    <h2 class="section-title" data-i18n="services_title">Services</h2>
-    <p class="section-desc" data-i18n="services_text">We provide trading and supply support from sourcing to delivery.</p>
-    <div class="grid">
-      <div class="card">
-        <h3 data-i18n="s1_title">Sourcing</h3>
-        <p data-i18n="s1_text">Supplier selection, samples, and specification confirmation.</p>
+          <div class="contactCard">
+            <div class="label" data-i18n="contact_email_title">Email</div>
+            <!-- EMAIL: агар домен почтан тайёр бўлса шуни қўй -->
+            <a href="mailto:info@maryamtrading.com">info@maryamtrading.com</a>
+          </div>
+        </div>
       </div>
-      <div class="card">
-        <h3 data-i18n="s2_title">Documentation</h3>
-        <p data-i18n="s2_text">Invoices, packing lists, and coordination with partners.</p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="s3_title">Logistics Coordination</h3>
-        <p data-i18n="s3_text">Shipment planning and delivery updates.</p>
-      </div>
-    </div>
+    </section>
+
+    <footer>
+      <span data-i18n="footer_rights">All rights reserved.</span> © <span id="year"></span> Maryam Trading
+    </footer>
   </div>
-</section>
 
-<section id="contact">
-  <div class="wrap">
-    <h2 class="section-title" data-i18n="contact_title">Contact</h2>
-    <p class="section-desc" data-i18n="contact_text">Contact us via phone or Telegram. We will respond as soon as possible.</p>
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    <div class="grid">
-      <div class="card">
-        <h3 data-i18n="contact_tel_title">Phone</h3>
-        <p><a class="btn" href="tel:+998901234567">+998 90 123 45 67</a></p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="contact_tg_title">Telegram</h3>
-        <p><a class="btn primary" href="https://t.me/MaryamTrading" target="_blank" rel="noopener">t.me/MaryamTrading</a></p>
-      </div>
-      <div class="card">
-        <h3 data-i18n="contact_email_title">Email</h3>
-        <p><a class="btn" href="mailto:info@maryamtrading.com">info@maryamtrading.com</a></p>
-      </div>
-    </div>
-  </div>
-</section>
+    // i18n dictionary
+    const dict = {
+      en: {
+        tagline:"Trading & Supply Company",
+        nav_about:"About Us", nav_products:"Products", nav_services:"Services", nav_contact:"Contact",
+        hero_title:"Trading that delivers on time.",
+        hero_text:"We help you source, supply, and deliver products with clear communication and reliable logistics.",
+        chip1:"Sourcing", chip2:"Supply", chip3:"Logistics", chip4:"Documentation",
+        cta_contact:"Contact us", cta_products:"View products",
 
-<footer>
-  <div class="wrap">
-    <div>© <span id="y"></span> Maryam Trading. <span data-i18n="footer_rights">All rights reserved.</span></div>
-  </div>
-</footer>
+        mini1_title:"Fast response", mini1_text:"We reply quickly and keep you updated.",
+        mini2_title:"Quality control", mini2_text:"We check suppliers and specifications.",
+        mini3_title:"Clear documents", mini3_text:"Invoices, packing list, and export docs prepared properly.",
 
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+        about_title:"About Us",
+        about_text:"Maryam Trading is a trading & supply company focused on sourcing and delivering products for businesses.",
+        about_card1_title:"Reliability", about_card1_text:"Stable supply and on-time delivery are our priority.",
+        about_card2_title:"Communication", about_card2_text:"Transparent updates at every stage.",
+        about_card3_title:"Support", about_card3_text:"We help with product selection and logistics.",
 
-  const dict = {
-    en:{tagline:"Trading & Supply Company",nav_about:"About",nav_products:"Products",nav_services:"Services",nav_contact:"Contact",
-      kicker:"Official website",hero_title:"Maryam Trading",hero_sub:"We supply reliable products and services with a focus on quality, transparent communication, and on-time delivery.",
-      cta_products:"View products",cta_contact:"Contact us",info_email_label:"Email:",info_tel_label:"Tel:",info_tg_label:"Telegram:",info_location_label:"Location:",info_location_val:"Uzbekistan",
-      about_title:"About Us",about_text:"Maryam Trading is a trading and supply company. We work with partners to provide consistent quality, competitive pricing, and clear documentation.",
-      about_card1_title:"Quality",about_card1_text:"We focus on stable quality and transparent specifications.",
-      about_card2_title:"Reliability",about_card2_text:"Clear communication and on-time delivery are our priorities.",
-      about_card3_title:"Support",about_card3_text:"We assist with product selection and logistics coordination.",
-      products_title:"Products",products_text:"Below are sample products. We can expand this list anytime.",
-      p1_title:"Product 1",p1_text:"Short description of product 1.",p2_title:"Product 2",p2_text:"Short description of product 2.",p3_title:"Product 3",p3_text:"Short description of product 3.",
-      services_title:"Services",services_text:"We provide trading and supply support from sourcing to delivery.",
-      s1_title:"Sourcing",s1_text:"Supplier selection, samples, and specification confirmation.",
-      s2_title:"Documentation",s2_text:"Invoices, packing lists, and coordination with partners.",
-      s3_title:"Logistics Coordination",s3_text:"Shipment planning and delivery updates.",
-      contact_title:"Contact",contact_text:"Contact us via phone or Telegram. We will respond as soon as possible.",
-      contact_tel_title:"Phone",contact_tg_title:"Telegram",contact_email_title:"Email",footer_rights:"All rights reserved."
-    },
-    ru:{tagline:"Торгово-снабженческая компания",nav_about:"О нас",nav_products:"Продукция",nav_services:"Услуги",nav_contact:"Контакты",
-      kicker:"Официальный сайт",hero_title:"Maryam Trading",hero_sub:"Мы поставляем надежную продукцию и услуги, делая упор на качество, прозрачную коммуникацию и своевременную доставку.",
-      cta_products:"Смотреть продукцию",cta_contact:"Связаться",info_email_label:"Email:",info_tel_label:"Тел:",info_tg_label:"Telegram:",info_location_label:"Локация:",info_location_val:"Узбекистан",
-      about_title:"О нас",about_text:"Maryam Trading — торгово-снабженческая компания. Мы работаем с партнерами, обеспечивая стабильное качество, конкурентные цены и понятные документы.",
-      about_card1_title:"Качество",about_card1_text:"Стабильное качество и прозрачные спецификации.",
-      about_card2_title:"Надежность",about_card2_text:"Четкая коммуникация и доставка вовремя — приоритет.",
-      about_card3_title:"Поддержка",about_card3_text:"Помогаем с подбором продукции и координацией логистики.",
-      products_title:"Продукция",products_text:"Ниже примеры товаров. Список можно расширять в любое время.",
-      p1_title:"Товар 1",p1_text:"Короткое описание товара 1.",p2_title:"Товар 2",p2_text:"Короткое описание товара 2.",p3_title:"Товар 3",p3_text:"Короткое описание товара 3.",
-      services_title:"Услуги",services_text:"Сопровождаем поставки от подбора до доставки.",
-      s1_title:"Поиск и подбор",s1_text:"Выбор поставщика, образцы и подтверждение спецификаций.",
-      s2_title:"Документы",s2_text:"Инвойсы, упаковочные листы и координация с партнерами.",
-      s3_title:"Логистика",s3_text:"Планирование отгрузки и информирование по доставке.",
-      contact_title:"Контакты",contact_text:"Свяжитесь с нами по телефону или в Telegram. Ответим в ближайшее время.",
-      contact_tel_title:"Телефон",contact_tg_title:"Telegram",contact_email_title:"Email",footer_rights:"Все права защищены."
-    },
-    uz:{tagline:"Savdo va ta’minot kompaniyasi",nav_about:"Biz haqimizda",nav_products:"Mahsulotlar",nav_services:"Xizmatlar",nav_contact:"Aloqa",
-      kicker:"Rasmiy veb-sayt",hero_title:"Maryam Trading",hero_sub:"Biz sifat, shaffof muloqot va o‘z vaqtida yetkazib berishga e’tibor qilgan holda ishonchli mahsulot va xizmatlarni ta’minlaymiz.",
-      cta_products:"Mahsulotlarni ko‘rish",cta_contact:"Bog‘lanish",info_email_label:"Email:",info_tel_label:"Tel:",info_tg_label:"Telegram:",info_location_label:"Manzil:",info_location_val:"O‘zbekiston",
-      about_title:"Biz haqimizda",about_text:"Maryam Trading — savdo va ta’minot kompaniyasi. Hamkorlar bilan ishlagan holda barqaror sifat, raqobatbardosh narx va aniq hujjatlashtirishni ta’minlaymiz.",
-      about_card1_title:"Sifat",about_card1_text:"Barqaror sifat va aniq spetsifikatsiyalar.",
-      about_card2_title:"Ishonchlilik",about_card2_text:"Shaffof muloqot va o‘z vaqtida yetkazib berish — ustuvor.",
-      about_card3_title:"Yordam",about_card3_text:"Mahsulot tanlash va logistika muvofiqlashtirishda yordam beramiz.",
-      products_title:"Mahsulotlar",products_text:"Quyida namunaviy mahsulotlar. Istalgan payt kengaytiramiz.",
-      p1_title:"Mahsulot 1",p1_text:"Mahsulot 1 учун qisqa tavsif.",p2_title:"Mahsulot 2",p2_text:"Mahsulot 2 учун qisqa tavsif.",p3_title:"Mahsulot 3",p3_text:"Mahsulot 3 учун qisqa tavsif.",
-      services_title:"Xizmatlar",services_text:"Tanlashdan tortib yetkazib berishgacha to‘liq ko‘mak beramiz.",
-      s1_title:"Sourcing",s1_text:"Yetkazib beruvchi tanlash, namuna va spetsifikatsiyani tasdiqlash.",
-      s2_title:"Hujjatlar",s2_text:"Hisob-faktura, packing list va hamkorlar bilan muvofiqlashtirish.",
-      s3_title:"Logistika",s3_text:"Yuk jo‘natishni rejalash va yetkazib berish bo‘yicha yangiliklar.",
-      contact_title:"Aloqa",contact_text:"Telefon yoki Telegram orqali bog‘laning. Tez orada javob beramiz.",
-      contact_tel_title:"Telefon",contact_tg_title:"Telegram",contact_email_title:"Email",footer_rights:"Barcha huquqlar himoyalangan."
+        products_title:"Products",
+        products_text:"Example product showcase (replace titles/descriptions later).",
+        p1_title:"Product 1", p1_text:"Short description for product 1.",
+        p2_title:"Product 2", p2_text:"Short description for product 2.",
+        p3_title:"Product 3", p3_text:"Short description for product 3.",
+
+        services_title:"Services",
+        s1_title:"Sourcing", s1_text:"Supplier selection, samples, and specifications alignment.",
+        s2_title:"Documentation", s2_text:"Invoice, packing list, and partner coordination.",
+        s3_title:"Logistics", s3_text:"Planning shipping and delivery updates.",
+        s4_title:"After-sales", s4_text:"Support and follow-up after delivery.",
+
+        contact_title:"Contact",
+        contact_text:"Contact us via phone or Telegram. We respond quickly.",
+        contact_tel_title:"Telephone",
+        contact_tg_title:"Telegram",
+        contact_email_title:"Email",
+
+        footer_rights:"All rights reserved."
+      },
+
+      uz: {
+        tagline:"Савдо ва таъминот компанияси",
+        nav_about:"Биз ҳақимизда", nav_products:"Маҳсулотлар", nav_services:"Хизматлар", nav_contact:"Алоқа",
+        hero_title:"Ўз вақтида етказиб бериладиган савдо.",
+        hero_text:"Биз сизга маҳсулот топиш, таъминот ва етказиб беришда аниқ алоқа ва ишончли логистика билан ёрдам берамиз.",
+        chip1:"Сорсинг", chip2:"Таъминот", chip3:"Логистика", chip4:"Ҳужжатлар",
+        cta_contact:"Алоқа қилиш", cta_products:"Маҳсулотлар",
+
+        mini1_title:"Тезкор жавоб", mini1_text:"Тез жавоб берамиз ва жараённи янгилаб борамиз.",
+        mini2_title:"Сифат назорати", mini2_text:"Таъминотчи ва спецификацияни текширамиз.",
+        mini3_title:"Аниқ ҳужжатлар", mini3_text:"Инвойс, packing list ва экспорт ҳужжатлари тўғри тайёрланади.",
+
+        about_title:"Биз ҳақимизда",
+        about_text:"Maryam Trading — бизнеслар учун маҳсулот топиш ва етказиб беришга ихтисослашган савдо-таъминот компанияси.",
+        about_card1_title:"Ишончлилик", about_card1_text:"Барқарор таъминот ва ўз вақтида етказиш — устувор.",
+        about_card2_title:"Мулоқот", about_card2_text:"Ҳар босқичда очиқ ва аниқ маълумот.",
+        about_card3_title:"Ёрдам", about_card3_text:"Маҳсулот танлаш ва логистикада ёрдам берамиз.",
+
+        products_title:"Маҳсулотлар",
+        products_text:"Намуна карточкалар (кейин тўлиқ ўзгартириб чиқамиз).",
+        p1_title:"Маҳсулот 1", p1_text:"Маҳсулот 1 учун қисқа тавсиф.",
+        p2_title:"Маҳсулот 2", p2_text:"Маҳсулот 2 учун қисқа тавсиф.",
+        p3_title:"Маҳсулот 3", p3_text:"Маҳсулот 3 учун қисқа тавсиф.",
+
+        services_title:"Хизматлар",
+        s1_title:"Сорсинг", s1_text:"Таъминотчи танлаш, намуна ва спецификация мувофиқлаштириш.",
+        s2_title:"Ҳужжатлар", s2_text:"Инвойс, packing list ва ҳамкорлар билан мувофиқлаштириш.",
+        s3_title:"Логистика", s3_text:"Юк жўнатишни режалаш ва етказиб бериш бўйича янгиликлар.",
+        s4_title:"Сотувдан кейин", s4_text:"Етказиб берилгандан кейин ҳам қўллаб-қувватлаш.",
+
+        contact_title:"Алоқа",
+        contact_text:"Телефон ёки Telegram орқали боғланинг. Тез орада жавоб берамиз.",
+        contact_tel_title:"Телефон",
+        contact_tg_title:"Telegram",
+        contact_email_title:"Email",
+
+        footer_rights:"Барча ҳуқуқлар ҳимояланган."
+      },
+
+      ru: {
+        tagline:"Торгово-снабженческая компания",
+        nav_about:"О нас", nav_products:"Продукты", nav_services:"Услуги", nav_contact:"Контакты",
+        hero_title:"Торговля с доставкой вовремя.",
+        hero_text:"Помогаем с подбором, поставкой и доставкой — с прозрачной коммуникацией и надежной логистикой.",
+        chip1:"Поиск поставщиков", chip2:"Поставка", chip3:"Логистика", chip4:"Документы",
+        cta_contact:"Связаться", cta_products:"Посмотреть продукты",
+
+        mini1_title:"Быстрый ответ", mini1_text:"Быстро отвечаем и держим вас в курсе.",
+        mini2_title:"Контроль качества", mini2_text:"Проверяем поставщиков и спецификации.",
+        mini3_title:"Понятные документы", mini3_text:"Счёт, packing list и экспортные документы — корректно.",
+
+        about_title:"О нас",
+        about_text:"Maryam Trading — торгово-снабженческая компания, которая помогает бизнесу находить и доставлять товары.",
+        about_card1_title:"Надёжность", about_card1_text:"Стабильные поставки и соблюдение сроков.",
+        about_card2_title:"Коммуникация", about_card2_text:"Прозрачные обновления на каждом этапе.",
+        about_card3_title:"Поддержка", about_card3_text:"Помогаем с выбором товара и логистикой.",
+
+        products_title:"Продукты",
+        products_text:"Витрина примеров (позже заменим на реальные позиции).",
+        p1_title:"Продукт 1", p1_text:"Короткое описание продукта 1.",
+        p2_title:"Продукт 2", p2_text:"Короткое описание продукта 2.",
+        p3_title:"Продукт 3", p3_text:"Короткое описание продукта 3.",
+
+        services_title:"Услуги",
+        s1_title:"Поиск поставщиков", s1_text:"Подбор поставщика, образцы и согласование спецификаций.",
+        s2_title:"Документы", s2_text:"Счёт-фактура, packing list и координация с партнёрами.",
+        s3_title:"Логистика", s3_text:"Планирование отправки и обновления по доставке.",
+        s4_title:"После продажи", s4_text:"Поддержка после получения товара.",
+
+        contact_title:"Контакты",
+        contact_text:"Свяжитесь по телефону или в Telegram. Отвечаем быстро.",
+        contact_tel_title:"Телефон",
+        contact_tg_title:"Telegram",
+        contact_email_title:"Email",
+
+        footer_rights:"Все права защищены."
+      }
+    };
+
+    function setLang(lang){
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const k = el.getAttribute("data-i18n");
+        if(dict[lang] && dict[lang][k]) el.textContent = dict[lang][k];
+      });
+      document.querySelectorAll(".lang_button").forEach(b=>{
+        b.classList.toggle("active", b.dataset.lang === lang);
+      });
+      localStorage.setItem("mt_lang", lang);
+      document.documentElement.lang = lang === "uz" ? "uz" : (lang === "ru" ? "ru" : "en");
     }
-  };
 
-  function setLang(lang){
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const k = el.getAttribute("data-i18n");
-      if(dict[lang] && dict[lang][k]) el.textContent = dict[lang][k];
+    document.querySelectorAll(".lang_button").forEach(b=>{
+      b.addEventListener("click", ()=> setLang(b.dataset.lang));
     });
-    document.querySelectorAll(".lang button").forEach(b=> b.classList.toggle("active", b.dataset.lang === lang));
-    localStorage.setItem("mt_lang", lang);
-  }
-  document.querySelectorAll(".lang button").forEach(b=> b.addEventListener("click", ()=> setLang(b.dataset.lang)));
-  setLang(localStorage.getItem("mt_lang") || "en");
-</script>
 
+    setLang(localStorage.getItem("mt_lang") || "en");
+  </script>
 </body>
 </html>
